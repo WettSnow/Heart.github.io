@@ -163,4 +163,48 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
+
 animate();
+
+
+// [Aquí va toda tu animación del corazón y eventos de fondo que ya teníamos de la versión anterior]
+
+// =========================================================
+// INTERRUPTOR DE VISTAS (INTRO A CARTA PRINCIPAL) + AUDIO
+// =========================================================
+const introOverlay = document.getElementById("introOverlay");
+const startButton = document.getElementById("startButton");
+const bgMusic = document.getElementById("bgMusic");
+const mainLetter = document.getElementById("mainLetter");
+
+// Controlamos que el corazón del canvas empiece invisible o muy sutil antes de la acción
+let showHeartAtFullAlpha = false;
+
+startButton.addEventListener("click", () => {
+
+  bgMusic.volume = 0.35;
+  // 1. Iniciar música
+  bgMusic.play().catch(err => console.log("Audio retenido por navegador:", err));
+
+  // 2. Ocultar la pantalla de bienvenida con la clase CSS suave
+  introOverlay.classList.add("hidden");
+
+  // 3. Revelar la gran carta con tu poema
+  mainLetter.classList.remove("visual-hidden");
+  
+  // Habilitar la visualización del corazón
+  showHeartAtFullAlpha = true;
+});
+
+// MODIFICACIÓN PEQUEÑA PARA TU ANIMACIÓN:
+// Para que el corazón aparezca de forma mágica SOLO cuando ella dé clic,
+// puedes envolver el bloque donde dibujas las partículas del corazón en tu función animate() con una condición básica.
+// Busca tu ciclo de "heartParticles.forEach" dentro de tu función animate() y modifícalo para que se vea así:
+
+/* if (showHeartAtFullAlpha) {
+    heartParticles.forEach((p) => {
+      let alpha = 0.35 + Math.sin(globalTime * p.speed + p.phase) * 0.25;
+      // ... [resto de tu código para dibujar el corazón]
+    });
+  }
+*/
