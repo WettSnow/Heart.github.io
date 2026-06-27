@@ -2,17 +2,28 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Letter for my love</title>
+  <title>Cyber Heart Decrypted</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div id="introOverlay" class="overlay">
+  <div class="intro-container">
+    <div class="intro-title">Dear Andrea</div>
+    <div class="intro-subtitle">
+      Hay secretos que no se pueden guardar para siempre... <br>
+      Un pequeño espacio digital diseñado solo para ti.
+    </div>
+    <button id="startButton" class="start-btn">[ LEER MENSAJE ]</button>
+  </div>
+</div>
+
+<audio id="bgMusic" src="audio.mp3" loop></audio>
+
 <canvas id="heartCanvas"></canvas>
 
-<div class="letter">
-  
+<div id="mainLetter" class="letter visual-hidden">
   <div class="decrypted-title">Dear Andrea</div>
-
   <div class="text">
     Te amo de una manera tan pura que no
     hace falta verte ni tocarte para que 
@@ -24,10 +35,7 @@
     viviria eternamente
     agradecido.
   </div>
-
-  <div class="signature">
-    — from me
-  </div>
+  <div class="signature">— from me</div>
 </div>
 
 <script src="script.js"></script>
