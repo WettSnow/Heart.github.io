@@ -1,7 +1,7 @@
 body {
   margin: 0;
   overflow: hidden;
-  background: #000000; /* Fondo negro puro de la imagen */
+  background: #000000;
   font-family: "Courier New", monospace;
 }
 
@@ -12,7 +12,65 @@ canvas {
   z-index: 1;
 }
 
-/* 💌 Contenedor de la carta */
+/* 📥 Pantalla de Bienvenida (Intro) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1.5s ease, visibility 1.5s ease;
+}
+
+.intro-container {
+  text-align: center;
+  max-width: 450px;
+  padding: 20px;
+}
+
+.intro-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff3344;
+  letter-spacing: 4px;
+  text-shadow: 0 0 15px rgba(255, 0, 50, 0.6);
+  margin-bottom: 20px;
+}
+
+.intro-subtitle {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 35px;
+}
+
+/* Botón estilizado y elegante */
+.start-btn {
+  background: transparent;
+  border: 1px solid #ff3344;
+  color: #ff3344;
+  padding: 12px 28px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px rgba(255, 0, 50, 0.4);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+  background: rgba(255, 50, 70, 0.15);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+  transform: scale(1.05);
+}
+
+/* 💌 Contenedor de la carta principal */
 .letter {
   position: absolute;
   top: 50%;
@@ -23,19 +81,18 @@ canvas {
   text-align: center;
   z-index: 10;
   pointer-events: none;
+  transition: opacity 2s ease, transform 2s ease;
 }
 
-/* Título estático y elegante */
 .decrypted-title {
   font-size: 32px;
   font-weight: bold;
-  color: #a69925;
+  color: #aa9d21;
   letter-spacing: 4px;
-  text-shadow: 0 0 15px rgba(93, 92, 19, 0.7);
+  text-shadow: 0 0 15px rgba(147, 160, 25, 0.7);
   margin-bottom: 25px;
 }
 
-/* Caja de texto del mensaje */
 .text {
   font-size: 14px;
   line-height: 1.6;
@@ -50,4 +107,15 @@ canvas {
   color: #d1c027;
   letter-spacing: 2px;
   opacity: 0.7;
+}
+
+/* Manejo de estados de ocultado */
+.letter.visual-hidden {
+  opacity: 0;
+  transform: translate(-50%, -45%) scale(0.95);
+}
+
+.overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
