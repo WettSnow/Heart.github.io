@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #000000; /* Fondo negro puro de la imagen */
+  font-family: "Courier New", monospace;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 💌 Contenedor de la carta */
+.letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  padding: 20px;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Título estático y elegante */
+.decrypted-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #a69925;
+  letter-spacing: 4px;
+  text-shadow: 0 0 15px rgba(93, 92, 19, 0.7);
+  margin-bottom: 25px;
+}
+
+/* Caja de texto del mensaje */
+.text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: pre-line;
+  text-shadow: 0 0 8px rgba(255, 40, 60, 0.4);
+}
+
+.signature {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #d1c027;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
